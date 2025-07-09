@@ -1,5 +1,4 @@
-1. Test Strategy Document (tests/test-strategy.md)
-markdown
+
 # CleanCity Test Strategy
 
 ## 1. Objectives
@@ -38,7 +37,7 @@ issue-types.png - Configured bug template
 dashboard.png - QA metrics dashboard
 
 3. Defect Reporting Standards (tests/defect-template.md)
-markdown
+
 ## Defect Report Template
 
 **Title**: [Brief description]  
@@ -52,7 +51,7 @@ markdown
 **Actual**: Form submits with blank data  
 **Evidence**: [screenshot.png]  
 4. Test Environment Matrix (tests/environments.md)
-markdown
+
 | OS         | Browser       | Viewport    | Test Coverage |
 |------------|---------------|-------------|---------------|
 | Windows 11 | Chrome 125    | 1920x1080   | Full          |
@@ -95,7 +94,7 @@ ui-issues.md: 5 UI/UX defects
 accessibility.md: 4 WCAG violations
 
 2. Test Metrics Dashboard
-markdown
+
 ## Week 2 Metrics
 - Test Coverage: 85%
 - Defects Found: 22
@@ -111,7 +110,6 @@ Accessibility audit results
 
 Video Presentation Script
 
-markdown
 ## Presentation Outline
 0:00 - Project overview
 1:00 - Key findings (show defect #CWS-15)
