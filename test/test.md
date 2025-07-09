@@ -71,4 +71,34 @@
 
 ---
 
-## Implementation Structure
+
+## Jira Task Mapping
+| Test Type         | Epic Key   | Example Tasks                          |
+|-------------------|-----------|----------------------------------------|
+| Functional        | CWS-100   | "Verify login validation (F1-F2)"      |
+| Non-Functional    | CWS-200   | "Test dashboard load performance (NF1)"|
+| Accessibility     | CWS-300   | "Validate color contrast (A3)"         |
+| Cross-Browser     | CWS-400   | "Check Safari date picker (CB2)"       |
+
+---
+
+## Key Characteristics
+1. **Functional Tests**  
+   - Focus on user workflows  
+   - Input validation  
+   - Data persistence  
+
+2. **Non-Functional Tests**  
+   - Quantitative metrics (load times)  
+   - Security vulnerabilities  
+   - Stress scenarios  
+
+3. **Accessibility Tests**  
+   - WCAG checkpoint alignment  
+   - Screen reader compatibility  
+   - Keyboard navigation  
+
+4. **Cross-Browser Tests**  
+   - Rendering consistency  
+   - Feature compatibility matrix  
+   - Browser-specific quirks  
