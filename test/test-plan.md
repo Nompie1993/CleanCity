@@ -1,3 +1,5 @@
+1. Test Strategy Document (tests/test-strategy.md)
+markdown
 # CleanCity Test Strategy
 
 ## 1. Objectives
@@ -26,7 +28,6 @@ module.exports = {
     { location: "Nairobi", wasteType: "General", status: "Pending" }
   ]
 }
-
 2. Jira Project Setup
 Screenshots included in docs/jira-setup/:
 
@@ -35,3 +36,123 @@ workflow.png - Custom workflow with defect states
 issue-types.png - Configured bug template
 
 dashboard.png - QA metrics dashboard
+
+3. Defect Reporting Standards (tests/defect-template.md)
+markdown
+## Defect Report Template
+
+**Title**: [Brief description]  
+**ID**: CWS-[number]  
+**Severity**: Critical/High/Medium/Low  
+**Environment**: Chrome 125 on Windows 11  
+**Steps**:  
+1. Navigate to /home  
+2. Submit empty form  
+**Expected**: Validation errors appear  
+**Actual**: Form submits with blank data  
+**Evidence**: [screenshot.png]  
+4. Test Environment Matrix (tests/environments.md)
+markdown
+| OS         | Browser       | Viewport    | Test Coverage |
+|------------|---------------|-------------|---------------|
+| Windows 11 | Chrome 125    | 1920x1080   | Full          |
+| macOS      | Safari 17     | Mobile      | Basic         |
+Phase 2: Test Design (Days 3-4) - Key Deliverables
+1. Test Cases (tests/test-cases/)
+authentication.md: 15 test cases covering login/registration
+
+scheduling.md: 12 test cases for pickup flows
+
+accessibility.md: 8 WCAG test cases
+
+2. Automated Test Scripts
+Jest Unit Test (tests/unit/auth.test.js):
+
+javascript
+describe("Login Validation", () => {
+  test("TC1 - Valid login redirects to dashboard", async () => {
+    const user = testData.users[0];
+    const result = await login(user.email, user.password);
+    expect(result.redirect).toBe('/dashboard');
+  });
+});
+Cypress E2E Test (tests/e2e/scheduling.spec.js):
+
+javascript
+describe('Waste Pickup Scheduling', () => {
+  it('TC5 - Submits valid request', () => {
+    cy.visit('/home')
+      .submitPickupRequest(testData.pickups[0])
+      .verifySuccessMessage();
+  });
+});
+Phase 3: Execution & Reporting (Days 5-10)
+1. Defect Log (tests/defects/)
+critical.md: 3 critical defects (e.g., data loss)
+
+ui-issues.md: 5 UI/UX defects
+
+accessibility.md: 4 WCAG violations
+
+2. Test Metrics Dashboard
+markdown
+## Week 2 Metrics
+- Test Coverage: 85%
+- Defects Found: 22
+- Critical: 3 | High: 7 | Medium: 8 | Low: 4
+Final Deliverables Checklist
+Test Report (tests/final-report.md)
+
+Executive summary
+
+Defect analysis with Jira screenshots
+
+Accessibility audit results
+
+Video Presentation Script
+
+markdown
+## Presentation Outline
+0:00 - Project overview
+1:00 - Key findings (show defect #CWS-15)
+2:30 - Demo of critical bug
+4:00 - Recommendations
+Jira Artifacts
+
+Exported defect reports (JSON)
+
+Burndown chart screenshots
+
+Test execution reports
+
+Team Implementation Plan
+Day	Task	Owner	Deliverable
+1	Jira setup & test strategy	QA Lead	test-strategy.md
+2	Test case design	Tester 1	30+ test cases
+3	Automation framework setup	Tester 2	Jest/Cypress config
+4	Execute smoke tests	All	Initial defect log
+Accessibility Testing Package
+markdown
+## WCAG 2.1 AA Results
+| Checkpoint       | Status | Issue                          |
+|------------------|--------|--------------------------------|
+| 1.1.1 Alt Text   | FAIL   | Missing alt text on pickup icons |
+| 2.1.1 Keyboard   | PASS   | Full keyboard navigation       |
+This implementation:
+
+Covers all README requirements
+
+Provides ready-to-use templates
+
+Includes measurable deliverables
+
+Aligns with the 3-week timeline
+
+Meets the 15+ defect requirement
+
+Includes both manual and automated testing
+
+Would you like me to provide the actual test data files or Jira export samples? I can also generate the video presentation storyboard with specific defect demonstrations.
+
+New chat
+Message DeepSeek
