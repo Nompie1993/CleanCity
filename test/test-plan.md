@@ -26,3 +26,12 @@ module.exports = {
     { location: "Nairobi", wasteType: "General", status: "Pending" }
   ]
 }
+
+2. Jira Project Setup
+Screenshots included in docs/jira-setup/:
+
+workflow.png - Custom workflow with defect states
+
+issue-types.png - Configured bug template
+
+dashboard.png - QA metrics dashboard
