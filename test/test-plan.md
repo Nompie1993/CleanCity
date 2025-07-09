@@ -56,7 +56,9 @@ dashboard.png - QA metrics dashboard
 |------------|---------------|-------------|---------------|
 | Windows 11 | Chrome 125    | 1920x1080   | Full          |
 | macOS      | Safari 17     | Mobile      | Basic         |
+
 Phase 2: Test Design (Days 3-4) - Key Deliverables
+
 1. Test Cases (tests/test-cases/)
 authentication.md: 15 test cases covering login/registration
 
@@ -86,6 +88,7 @@ describe('Waste Pickup Scheduling', () => {
   });
 });
 Phase 3: Execution & Reporting (Days 5-10)
+
 1. Defect Log (tests/defects/)
 critical.md: 3 critical defects (e.g., data loss)
 
@@ -130,6 +133,7 @@ Day	Task	Owner	Deliverable
 3	Automation framework setup	Tester 2	Jest/Cypress config
 4	Execute smoke tests	All	Initial defect log
 Accessibility Testing Package
+
 markdown
 ## WCAG 2.1 AA Results
 | Checkpoint       | Status | Issue                          |
