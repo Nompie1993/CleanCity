@@ -154,17 +154,4 @@ QA Lead: ___________________
 Dev Lead: ___________________  
 ```
 
-### Key Features:
-1. **Traceability**: Every test case links directly to FRs
-2. **Ready-to-Run**: Includes commands for GitHub setup
-3. **Visual Planning**: Mermaid/Pie charts for coverage
-4. **Risk-Focused**: Highlights critical test scenarios
-5. **Tool Integration**: Pre-configured for Cypress, Jira, etc.
 
-### Implementation Steps:
-1. Save as `TEST_PLAN.md` in project root
-2. Create the `testdata/` directory with sample files
-3. Configure GitHub Projects with columns:
-   - `Backlog` → `Ready` → `In Progress` → `Passed` → `Failed`
-
-Would you like me to generate any of the referenced test data files (e.g., `valid_users.json`) with actual sample data?
