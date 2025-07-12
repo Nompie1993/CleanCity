@@ -1,104 +1,125 @@
-# CleanCity QA Test Case Classification
 
-## 1. Functional Test Cases
-*(Verify core features work as intended)*  
-**File**: `tests/functional/README.md`
+# CleanCity Stratege-Plan
 
-### Authentication
-| ID  | Scenario                | Steps                                                                 | Expected Result                     |
-|-----|-------------------------|-----------------------------------------------------------------------|-------------------------------------|
-| F1  | Valid user login        | 1. Enter valid credentials<br>2. Click "Sign In"                     | Redirect to dashboard               |
-| F2  | Invalid password        | 1. Enter valid email + wrong password<br>2. Submit                   | Show "Invalid credentials" error    |
-
-### Scheduling
-| ID  | Scenario                | Steps                                                                 | Expected Result                     |
-|-----|-------------------------|-----------------------------------------------------------------------|-------------------------------------|
-| F3  | Submit pickup request   | 1. Fill all required fields<br>2. Select future date<br>3. Submit     | Success notification appears        |
-| F4  | Missing location        | 1. Submit form without selecting location                            | Show "Location required" error      |
+## 📋 Document Information
+**Version:** 1.0  
+**Date:** `2025-07-03`  
+**Target Release:** v1.0  
+**Test Approach:** Hybrid (70% Automation / 30% Manual)  
 
 ---
 
-## 2. Non-Functional Test Cases
-*(Validate performance, security, etc.)*  
-**File**: `tests/non-functional/README.md`
+## 🗺️ Test Scope
+```mermaid
+pie
+    title Requirement Coverage
+    "Authentication" : 15
+    "Waste Management" : 30
+    "Dashboard/Analytics" : 20
+    "Community Features" : 20
+    "Admin Functions" : 15
+🧪 Test Types
+Type	Tools	FR Coverage
+Functional	Cypress, Jest	FR-001 to FR-097
+Security	OWASP ZAP	FR-081 to FR-083
+Performance	Lighthouse, k6	FR-084 to FR-086
+Accessibility	Axe, Pa11y	FR-071 to FR-074
+Compatibility	BrowserStack	FR-069 to FR-070
+⚙️ Test Environment
+1. Browser Matrix
+csv
+Browser,Version,OS,Resolution,Test Focus
+Chrome,125,Windows 11,1920x1080,All FRs
+Firefox,125,Ubuntu 22.04,1366x768,FR-001 to FR-030
+Safari,17,MacOS,1440x900,UI/UX Requirements
+2. Device Coverage
+Type	Device	Test Cases
+Mobile	iPhone 14	FR-069, FR-070, FR-075
+Tablet	iPad Air	FR-023 to FR-030
+Desktop	Dell XPS 15	Admin Functions (FR-053-064)
+📅 Test Schedule
+Phase 1: Test Planning (Days 1-2)
+Create traceability matrix (FR ↔ Test Cases)
 
-### Performance
-| ID  | Scenario                | Metric               | Threshold          | Tool          |
-|-----|-------------------------|----------------------|--------------------|---------------|
-| NF1 | Dashboard load time     | Page load            | < 2.0 sec          | Lighthouse    |
-| NF2 | Form submission         | API response time    | < 1.5 sec          | Chrome DevTools |
+Set up GitHub Projects with columns:
 
-### Security
-| ID  | Scenario                | Steps                             | Expected Result               |
-|-----|-------------------------|-----------------------------------|-------------------------------|
-| NF3 | XSS prevention          | 1. Inject `<script>` in form      | Input sanitized               |
-| NF4 | Session timeout         | 1. Wait 30 mins inactive          | Auto-logout occurs            |
+graph LR
+  A[Backlog] --> B[todo]
+  B --> C[In Progress]
+  C --> D[Blocked]
+  C --> E[Done]
 
----
+Phase 2: Test Design (Days 3-5)
+Create test cases for:
 
-## 3. Accessibility Test Cases
-*(WCAG 2.1 AA compliance)*  
-**File**: `tests/accessibility/README.md`
+bash
+# Authentication Module
+touch testcases/auth/FR-001_to_FR-011.md
+# Waste Management
+touch testcases/waste/FR-012_to_FR-022.md
+Phase 3: Execution (Days 6-15)
+yaml
+# .github/workflows/regression.yml
+name: Regression Tests
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          env: FR_NUMBERS="FR-001,FR-012,FR-023"
+🔍 Test Cases (Samples)
+1. Authentication (FR-001 to FR-011)
+TC-AUTH-01: Valid User Registration
 
-### Visual & Navigation
-| ID  | WCAG Criteria           | Test Method                      | Expected Result       |
-|-----|-------------------------|----------------------------------|-----------------------|
-| A1  | 1.1.1 (Alt Text)        | Scan images with axe DevTools    | All images have alt text |
-| A2  | 2.1.1 (Keyboard)        | Tab through entire application   | All elements reachable |
+gherkin
+Given I enter valid registration data
+When I submit the form
+Then account is created with "User" role (FR-003)
+And I see dashboard (FR-007)
+TC-AUTH-05: Admin Role Access
 
-### Color & Contrast
-| ID  | WCAG Criteria           | Test Method                      | Expected Result       |
-|-----|-------------------------|----------------------------------|-----------------------|
-| A3  | 1.4.3 (Contrast)        | Check color ratios               | Text ≥ 4.5:1 ratio   |
+markdown
+**Preconditions:** Admin credentials  
+**Steps:**  
+1. Log in as admin  
+2. Navigate to /admin  
+**Expected:** Admin panel loads (FR-011)  
+2. Waste Management (FR-012 to FR-022)
+TC-WASTE-03: Hazardous Waste Approval
 
----
+javascript
+// testdata/pickups/hazardous.json
+{
+  "type": "Batteries",
+  "date": "2024-12-25",
+  "expectedStatus": "Pending Approval" // FR-012, FR-015
+}
+📊 Metrics & Reporting
+Metric	Tool	Target
+Requirement Coverage	Jira Xray	≥95%
+Defect Density	GitHub Projects	<0.5 defects/TC
+Test Automation	Cypress Dashboard	70% by Release
+⚠️ Risk Management
+Risk	Mitigation	Owner
+localStorage limitations	Fallback to sessionStorage (FR-080)	Dev Team
+Timezone handling	Test with UTC±12 (FR-013)	QA Team
+Accessibility compliance	Weekly Pa11y scans (FR-071)	UX Team
+✅ Exit Criteria
+All P0/P1 defects resolved
 
-## 4. Cross-Browser Tests
-*(Consistency across browsers)*  
-**File**: `tests/cross-browser/README.md`
+95% FR coverage verified
 
-### Browser Matrix
-| ID  | Browser       | OS          | Key Tests                     |
-|-----|---------------|-------------|-------------------------------|
-| CB1 | Chrome 125    | Windows 11  | All functional test cases     |
-| CB2 | Safari 17     | macOS       | Critical paths only          |
+Key performance metrics:
 
-### Specific Checks
-| ID  | Scenario                | Browser(s)           | Expected Result               |
-|-----|-------------------------|----------------------|-------------------------------|
-| CB3 | Date picker rendering   | Firefox 120+         | Consistent UI/functionality   |
-| CB4 | CSS Flexbox support     | Edge 110+            | Proper layout alignment       |
+Page load <3s (FR-084)
 
----
+Actions <1s (FR-085)
 
+Accessibility score ≥90 (Lighthouse)
 
-## Jira Task Mapping
-| Test Type         | Epic Key   | Example Tasks                          |
-|-------------------|-----------|----------------------------------------|
-| Functional        | CWS-100   | "Verify login validation (F1-F2)"      |
-| Non-Functional    | CWS-200   | "Test dashboard load performance (NF1)"|
-| Accessibility     | CWS-300   | "Validate color contrast (A3)"         |
-| Cross-Browser     | CWS-400   | "Check Safari date picker (CB2)"       |
-
----
-
-## Key Characteristics
-1. **Functional Tests**  
-   - Focus on user workflows  
-   - Input validation  
-   - Data persistence  
-
-2. **Non-Functional Tests**  
-   - Quantitative metrics (load times)  
-   - Security vulnerabilities  
-   - Stress scenarios  
-
-3. **Accessibility Tests**  
-   - WCAG checkpoint alignment  
-   - Screen reader compatibility  
-   - Keyboard navigation  
-
-4. **Cross-Browser Tests**  
-   - Rendering consistency  
-   - Feature compatibility matrix  
-   - Browser-specific quirks  
+Approval:
+QA Lead: ___________________
+Date: YYYY-MM-DD
