@@ -9,7 +9,7 @@
 | Version            | 1.0                           |
 | Last Updated       | `2025-07-12`                  |
 | Target Release     | v1.0                          |
-| GitHub Project     | [CleanCity QA Board]()       |
+| GitHub Project     | [CleanCity QA Board](https://github.com/users/Nompie1993/projects/5)       |
 
 </details>
 
