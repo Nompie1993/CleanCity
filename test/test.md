@@ -1,125 +1,174 @@
 
-# CleanCity Stratege-Plan
 
-## 📋 Document Information
-**Version:** 1.0  
-**Date:** `2025-07-03`  
-**Target Release:** v1.0  
-**Test Approach:** Hybrid (70% Automation / 30% Manual)  
+# CleanCity Test Plan
 
----
+<details>
+<summary><strong>📋 Document Information</strong></summary>
+
+| **Field**         | **Value**                     |
+|--------------------|-------------------------------|
+| Version            | 1.0                           |
+| Last Updated       | `YYYY-MM-DD`                  |
+| Target Release     | v1.0                          |
+| GitHub Project     | [CleanCity QA Board](#)       |
+| Related Docs       | [FRS](#), [Test Data](#)      |
+
+</details>
 
 ## 🗺️ Test Scope
 ```mermaid
-pie
+%% GitHub supports Mermaid diagrams
+pie showData
     title Requirement Coverage
-    "Authentication" : 15
-    "Waste Management" : 30
-    "Dashboard/Analytics" : 20
-    "Community Features" : 20
-    "Admin Functions" : 15
-🧪 Test Types
-Type	Tools	FR Coverage
-Functional	Cypress, Jest	FR-001 to FR-097
-Security	OWASP ZAP	FR-081 to FR-083
-Performance	Lighthouse, k6	FR-084 to FR-086
-Accessibility	Axe, Pa11y	FR-071 to FR-074
-Compatibility	BrowserStack	FR-069 to FR-070
-⚙️ Test Environment
-1. Browser Matrix
-csv
-Browser,Version,OS,Resolution,Test Focus
-Chrome,125,Windows 11,1920x1080,All FRs
-Firefox,125,Ubuntu 22.04,1366x768,FR-001 to FR-030
-Safari,17,MacOS,1440x900,UI/UX Requirements
-2. Device Coverage
-Type	Device	Test Cases
-Mobile	iPhone 14	FR-069, FR-070, FR-075
-Tablet	iPad Air	FR-023 to FR-030
-Desktop	Dell XPS 15	Admin Functions (FR-053-064)
-📅 Test Schedule
-Phase 1: Test Planning (Days 1-2)
-Create traceability matrix (FR ↔ Test Cases)
+    "Authentication (FR1-11)" : 15
+    "Waste Mgmt (FR12-22)" : 30
+    "Dashboard (FR23-30)" : 20
+    "Community (FR41-52)" : 20
+    "Admin (FR53-64)" : 15
+```
 
-Set up GitHub Projects with columns:
+## ⚙️ GitHub Setup
+### 1. Project Board
+```markdown
+[![GitHub Project](https://github.com/orgs/CleanCity/projects/1)
+```
+**Columns:**
+```
+Backlog → Todo → In Progress → Blocked → Done
+```
 
-graph LR
-  A[Backlog] --> B[todo]
-  B --> C[In Progress]
-  C --> D[Blocked]
-  C --> E[Done]
+### 2. Issue Templates
+```bash
+# Create in .github/ISSUE_TEMPLATES/
+touch test_case.md defect_report.md
+```
+**Sample Test Case Template:**
+```markdown
+---
+name: Test Case
+about: Create new test case
+title: 'TC-[MODULE]-[ID]: [Description]'
+labels: 'test-case'
+assignees: ''
 
-Phase 2: Test Design (Days 3-5)
-Create test cases for:
+---
+### Linked FR: 
+FR-XXX
 
-bash
-# Authentication Module
-touch testcases/auth/FR-001_to_FR-011.md
-# Waste Management
-touch testcases/waste/FR-012_to_FR-022.md
-Phase 3: Execution (Days 6-15)
-yaml
-# .github/workflows/regression.yml
+### Test Steps:
+1. 
+2. 
+
+### Expected Result:
+
+### Actual Result:
+```
+
+## 🔍 Test Cases (Examples)
+<details>
+<summary><strong>🔐 Authentication (FR-001 to FR-011)</strong></summary>
+
+### TC-AUTH-01: Valid Registration
+```gherkin
+Scenario: Successful user registration
+  Given I enter valid registration data
+  When I submit the form
+  Then Account is created (FR-003)
+  And I'm redirected to dashboard (FR-007)
+```
+
+### TC-AUTH-02: Admin Access Control
+```markdown
+**Preconditions:** Admin user logged in  
+**Steps:**  
+1. Navigate to `/admin/users`  
+**Expected:**  
+- User management panel loads (FR-011)  
+- Regular users see 403 error  
+```
+</details>
+
+<details>
+<summary><strong>🗑️ Waste Management (FR-012 to FR-022)</strong></summary>
+
+### TC-WASTE-01: Pickup Scheduling
+```yaml
+# testdata/pickups/valid.yaml
+date: tomorrow
+waste_type: Recyclable
+quantity: Medium
+expected: status:Confirmed (FR-012, FR-019)
+```
+
+### TC-WASTE-07: Hazardous Waste
+```markdown
+**Test Data:**  
+- Type: "Batteries"  
+- Date: tomorrow + 1day  
+
+**Expected:**  
+- Status: "Pending Approval" (FR-015)  
+- Admin notification sent  
+```
+</details>
+
+## 🛠️ GitHub Actions
+```yaml
 name: Regression Tests
 on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: cypress-io/github-action@v6
         with:
           browser: chrome
-          env: FR_NUMBERS="FR-001,FR-012,FR-023"
-🔍 Test Cases (Samples)
-1. Authentication (FR-001 to FR-011)
-TC-AUTH-01: Valid User Registration
+          env:
+            BASE_URL: ${{ secrets.STAGING_URL }}
+          config-file: cypress/config/FR-001_to_FR-030.json
+```
 
-gherkin
-Given I enter valid registration data
-When I submit the form
-Then account is created with "User" role (FR-003)
-And I see dashboard (FR-007)
-TC-AUTH-05: Admin Role Access
+## 📊 Tracking
+### Requirement Coverage
+| FR Range       | Test Cases | Coverage |
+|----------------|------------|----------|
+| FR-001 - FR-011 | 15         | 100%     |
+| FR-012 - FR-022 | 22         | 95%      |
 
-markdown
-**Preconditions:** Admin credentials  
-**Steps:**  
-1. Log in as admin  
-2. Navigate to /admin  
-**Expected:** Admin panel loads (FR-011)  
-2. Waste Management (FR-012 to FR-022)
-TC-WASTE-03: Hazardous Waste Approval
+### Defect Stats
+```diff
+# Latest Run (2024-03-20)
++ 142 Passed
+- 3 Failed (2 P2, 1 P3)
+! 2 Blocked
+```
 
-javascript
-// testdata/pickups/hazardous.json
-{
-  "type": "Batteries",
-  "date": "2024-12-25",
-  "expectedStatus": "Pending Approval" // FR-012, FR-015
-}
-📊 Metrics & Reporting
-Metric	Tool	Target
-Requirement Coverage	Jira Xray	≥95%
-Defect Density	GitHub Projects	<0.5 defects/TC
-Test Automation	Cypress Dashboard	70% by Release
-⚠️ Risk Management
-Risk	Mitigation	Owner
-localStorage limitations	Fallback to sessionStorage (FR-080)	Dev Team
-Timezone handling	Test with UTC±12 (FR-013)	QA Team
-Accessibility compliance	Weekly Pa11y scans (FR-071)	UX Team
-✅ Exit Criteria
-All P0/P1 defects resolved
+## ✅ Approval
+**QA Lead:**  
+Signed-off: ___________________  
+Date: `YYYY-MM-DD`  
 
-95% FR coverage verified
+[![View in GitHub](https://img.shields.io/badge/View_in-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/CleanCity/qa)
+```
 
-Key performance metrics:
+### Key GitHub Features Used:
+1. **Collapsible Sections** - For organizing test modules
+2. **Mermaid Diagrams** - Native GitHub support for visualizations
+3. **Shields.io Badges** - For clickable project links
+4. **Syntax Highlighting** - For code/test case formatting
+5. **Task Lists** - For tracking completion
+6. **Diff Highlighting** - For test results
 
-Page load <3s (FR-084)
+### Implementation Steps:
+1. Create `.github/ISSUE_TEMPLATES/` with the templates
+2. Set up GitHub Projects board with the specified columns
+3. Add the GitHub Actions workflow file
+4. Store test data in `/testdata/` directory
+5. Use issue labels: `test-case`, `defect`, `module:auth`, `priority:p0`
 
-Actions <1s (FR-085)
-
-Accessibility score ≥90 (Lighthouse)
-
-Approval:
-QA Lead: ___________________
-Date: YYYY-MM-DD
+The markdown renders perfectly in GitHub and provides:
+- One-click navigation to related resources
+- Clear visual hierarchy
+- Ready-to-use templates
+- Automated test tracking
