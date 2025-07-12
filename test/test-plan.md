@@ -146,7 +146,7 @@ Safari,17,MacOS,TC-WASTE-*
 
 ## 🔗 9. Resources
 1. [FRS Document](https://github.com/Nompie1993/CleanCity/blob/main/docs/functional-requirements.md)  
-2. [Test Data Repo](https://github.com/your-repo/testdata)  
+2. [Test Data Repo](https://github.com/Nompie1993/CleanCity/blob/main/docs/test-data.md)  
 3. [Github Project](https://github.com/users/Nompie1993/projects/5)  
 
 **Approval:**  
