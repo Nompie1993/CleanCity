@@ -1,0 +1,5 @@
+When: Issue
+Event: Labeled
+Label: bug
+Then: Add to project
+Column: Backlog
