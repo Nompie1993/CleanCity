@@ -7,10 +7,9 @@
 | **Field**         | **Value**                     |
 |--------------------|-------------------------------|
 | Version            | 1.0                           |
-| Last Updated       | `YYYY-MM-DD`                  |
+| Last Updated       | `2025-07-12`                  |
 | Target Release     | v1.0                          |
-| GitHub Project     | [CleanCity QA Board](#)       |
-| Related Docs       | [FRS](#), [Test Data](#)      |
+| GitHub Project     | [CleanCity QA Board]()       |
 
 </details>
 
@@ -137,37 +136,13 @@ jobs:
 
 ### Defect Stats
 ```diff
-# Latest Run (2024-03-20)
-+ 142 Passed
-- 3 Failed (2 P2, 1 P3)
-! 2 Blocked
+# Latest Run (2025-07-12)
++ 10 Passed
+- 5 Failed (2 P2, 1 P3)
+
 ```
 
 ## ✅ Approval
 **QA Lead:**  
 Signed-off: ___________________  
 Date: `YYYY-MM-DD`  
-
-[![View in GitHub](https://img.shields.io/badge/View_in-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/CleanCity/qa)
-```
-
-### Key GitHub Features Used:
-1. **Collapsible Sections** - For organizing test modules
-2. **Mermaid Diagrams** - Native GitHub support for visualizations
-3. **Shields.io Badges** - For clickable project links
-4. **Syntax Highlighting** - For code/test case formatting
-5. **Task Lists** - For tracking completion
-6. **Diff Highlighting** - For test results
-
-### Implementation Steps:
-1. Create `.github/ISSUE_TEMPLATES/` with the templates
-2. Set up GitHub Projects board with the specified columns
-3. Add the GitHub Actions workflow file
-4. Store test data in `/testdata/` directory
-5. Use issue labels: `test-case`, `defect`, `module:auth`, `priority:p0`
-
-The markdown renders perfectly in GitHub and provides:
-- One-click navigation to related resources
-- Clear visual hierarchy
-- Ready-to-use templates
-- Automated test tracking
