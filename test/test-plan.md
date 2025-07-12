@@ -1,143 +1,170 @@
 
-# CleanCity Test Strategy
+# CleanCity Test Plan
 
-## 1. Objectives
-- Validate all authentication flows (login, registration, session management)
-- Verify waste pickup scheduling functionality
-- Ensure dashboard filters and analytics work correctly
-- Confirm WCAG 2.1 AA compliance
+## 📋 Document Information
+**Version:** 1.0  
+**Date:** `2025-06-26`  
+**Target Release:** v1.0  
+**Test Team:**   Nompie Dube, Neo, Lusanda
 
-## 2. Scope
-| Module            | Test Types                     | Tools              |
-|-------------------|--------------------------------|--------------------|
-| Authentication    | Functional, Security           | Jest, Cypress      |
-| Scheduling        | Functional, UI, Validation     | React Testing Lib  |
-| Dashboard         | Functional, Data Integrity     | BrowserStack       |
-| Accessibility     | WCAG Compliance                | axe DevTools       |
+---
 
-## 3. Test Data Requirements
-```javascript
-// tests/fixtures/test-data.js
-module.exports = {
-  users: [
-    { email: "user@cleancity.com", password: "password123", role: "user" },
-    { email: "admin@cleancity.com", password: "admin123", role: "admin" }
-  ],
-  pickups: [
-    { location: "Nairobi", wasteType: "General", status: "Pending" }
-  ]
-}
-2. Jira Project Setup
-Screenshots included in docs/jira-setup/:
+## 🎯 1. Test Strategy
+### 1.1 Testing Scope
+```mermaid
+pie
+    title Test Coverage
+    "Authentication" : 15
+    "Waste Management" : 30
+    "Dashboard/Analytics" : 20
+    "Community Features" : 20
+    "Admin Functions" : 15
+```
 
-workflow.png - Custom workflow with defect states
+### 1.2 Test Types
+| **Type**          | **Tool**         | **Coverage Target** |
+|-------------------|------------------|---------------------|
+| Functional        | jest           | 100% FRs            |
+| Performance      | Lighthouse       | Key user journeys   |
+| Accessibility    | Axe, Pa11y       | WCAG 2.1 AA         |
 
-issue-types.png - Configured bug template
+---
 
-dashboard.png - QA metrics dashboard
+## 🗓 2. Test Phases
+### 2.1 Phase 1: Test Planning (Days 1-2)
+#### Deliverables:
+- [x] Traceability matrix (FR ↔ Test Cases)
+- [x] `testdata/` directory structure:
+  ```
+  /testdata
+    /auth
+      valid_users.json
+      invalid_users.json
+    /pickups
+      scheduling_rules.yaml
+    /browsers
+      compatibility_matrix.csv
+  ```
 
-3. Defect Reporting Standards (tests/defect-template.md)
+#### GitHub Setup:
+```bash
+# Create issue templates
+mkdir -p .github/ISSUE_TEMPLATES
+touch .github/ISSUE_TEMPLATES/{test_case.md,defect_report.md}
+```
 
-## Defect Report Template
+---
 
-**Title**: [Brief description]  
-**ID**: CWS-[number]  
-**Severity**: Critical/High/Medium/Low  
-**Environment**: Chrome 125 on Windows 11  
-**Steps**:  
-1. Navigate to /home  
-2. Submit empty form  
-**Expected**: Validation errors appear  
-**Actual**: Form submits with blank data  
-**Evidence**: [screenshot.png]  
-4. Test Environment Matrix (tests/environments.md)
+## 🧪 3. Test Case Design
+### 3.1 Authentication (FR-001 to FR-011)
+**Sample Test Case:**
+```markdown
+### TC-AUTH-01: Valid User Registration
+**Priority:** High  
+**Linked FR:** FR-001, FR-003  
+**Steps:**  
+1. Enter valid email (test@example.com)  
+2. Enter valid password (ValidPass123!)  
+3. Fill required fields  
+**Expected:**  
+- Account created with "User" role  
+- Redirect to dashboard  
+```
 
-| OS         | Browser       | Viewport    | Test Coverage |
-|------------|---------------|-------------|---------------|
-| Windows 11 | Chrome 125    | 1920x1080   | Full          |
-| macOS      | Safari 17     | Mobile      | Basic         |
+### 3.2 Waste Management (FR-012 to FR-022)
+**Edge Case Test:**
+```markdown
+### TC-WASTE-07: Hazardous Waste Approval Flow  
+**Priority:** Critical  
+**Linked FR:** FR-012, FR-015  
+**Test Data:**  
+- Waste type: "Batteries"  
+- Date: Tomorrow  
+**Expected:**  
+- Status: "Pending Approval"  
+- Admin notification triggered  
+```
 
-Phase 2: Test Design (Days 3-4) - Key Deliverables
+---
 
-1. Test Cases (tests/test-cases/)
-authentication.md: 15 test cases covering login/registration
+## 🛠️ 4. Test Environment
+### 4.1 Browser Matrix
+```csv
+Browser,Version,OS,Test Cases
+Chrome,125,Windows 11,All
+Firefox,125,Ubuntu 22.04,TC-AUTH-*
+Safari,17,MacOS,TC-WASTE-*
+```
 
-scheduling.md: 12 test cases for pickup flows
+### 4.2 Device Testing
+**Coverage:**
+- Mobile: iPhone SE (375x667), Pixel 6 (412x915)
+- Tablet: iPad Air (820x1180)
+- Desktop: 1920x1080, 1440x900
 
-accessibility.md: 8 WCAG test cases
+---
 
-2. Automated Test Scripts
-Jest Unit Test (tests/unit/auth.test.js):
+## 🚦 5. Execution Plan
+### 5.1 Test Cycle 1 (Sanity)
+**Duration:** 1 day  
+**Scope:**  
+- Critical auth flows (FR-001 to FR-011)  
+- Basic pickup scheduling (FR-012 to FR-015)  
 
-javascript
-describe("Login Validation", () => {
-  test("TC1 - Valid login redirects to dashboard", async () => {
-    const user = testData.users[0];
-    const result = await login(user.email, user.password);
-    expect(result.redirect).toBe('/dashboard');
-  });
-});
-Cypress E2E Test (tests/e2e/scheduling.spec.js):
+### 5.2 Test Cycle 2 (Regression)
+**Duration:** 3 days  
+**Scope:**  
+- All FRs with bug fixes  
+- Cross-browser validation  
 
-javascript
-describe('Waste Pickup Scheduling', () => {
-  it('TC5 - Submits valid request', () => {
-    cy.visit('/home')
-      .submitPickupRequest(testData.pickups[0])
-      .verifySuccessMessage();
-  });
-});
-Phase 3: Execution & Reporting (Days 5-10)
+---
 
-1. Defect Log (tests/defects/)
-critical.md: 3 critical defects (e.g., data loss)
+## 📈 6. Metrics & Reporting
+| **Metric**          | **Target**       | **Measurement**          |
+|---------------------|------------------|--------------------------|
+| Requirement Coverage | ≥95%             | Jira Xray                |
+| Defect Density      | <0.5/TC          | GitHub Projects          |
+| Test Automation     | 70%              | Cypress Dashboard        |
 
-ui-issues.md: 5 UI/UX defects
+---
 
-accessibility.md: 4 WCAG violations
+## ⚠️ 7. Risk Management
+| **Risk**                      | **Mitigation**                          |
+|-------------------------------|-----------------------------------------|
+| localStorage limitations      | Fallback to sessionStorage              |
+| Timezone handling             | Test with UTC-12 to UTC+14              |
+| Admin permission escalation   | Regular RBAC audits                     |
 
-2. Test Metrics Dashboard
+---
 
-## Week 2 Metrics
-- Test Coverage: 85%
-- Defects Found: 22
-- Critical: 3 | High: 7 | Medium: 8 | Low: 4
-Final Deliverables Checklist
-Test Report (tests/final-report.md)
+## ✅ 8. Exit Criteria
+- All P0/P1 defects resolved  
+- 95% FR coverage achieved  
+- Accessibility score ≥90 (Lighthouse)  
 
-Executive summary
+---
 
-Defect analysis with Jira screenshots
+## 🔗 9. Resources
+1. [FRS Document](#)  
+2. [Test Data Repo](https://github.com/your-repo/testdata)  
+3. [Github Project](https://github.com/users/Nompie1993/projects/5)  
 
-Accessibility audit results
+**Approval:**  
+QA Lead: ___________________  
+Dev Lead: ___________________  
+```
 
-Video Presentation Script
+### Key Features:
+1. **Traceability**: Every test case links directly to FRs
+2. **Ready-to-Run**: Includes commands for GitHub setup
+3. **Visual Planning**: Mermaid/Pie charts for coverage
+4. **Risk-Focused**: Highlights critical test scenarios
+5. **Tool Integration**: Pre-configured for Cypress, Jira, etc.
 
-## Presentation Outline
-0:00 - Project overview
-1:00 - Key findings (show defect #CWS-15)
-2:30 - Demo of critical bug
-4:00 - Recommendations
-Jira Artifacts
+### Implementation Steps:
+1. Save as `TEST_PLAN.md` in project root
+2. Create the `testdata/` directory with sample files
+3. Configure GitHub Projects with columns:
+   - `Backlog` → `Ready` → `In Progress` → `Passed` → `Failed`
 
-Exported defect reports (JSON)
-
-Burndown chart screenshots
-
-Test execution reports
-
-Team Implementation Plan
-Day	Task	Owner	Deliverable
-1	Jira setup & test strategy	QA Lead	test-strategy.md
-2	Test case design	Tester 1	30+ test cases
-3	Automation framework setup	Tester 2	Jest/Cypress config
-4	Execute smoke tests	All	Initial defect log
-Accessibility Testing Package
-
-markdown
-## WCAG 2.1 AA Results
-| Checkpoint       | Status | Issue                          |
-|------------------|--------|--------------------------------|
-| 1.1.1 Alt Text   | FAIL   | Missing alt text on pickup icons |
-| 2.1.1 Keyboard   | PASS   | Full keyboard navigation       |
-
+Would you like me to generate any of the referenced test data files (e.g., `valid_users.json`) with actual sample data?
