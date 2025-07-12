@@ -30,7 +30,7 @@ pie showData
 ## ⚙️ GitHub Setup
 ### 1. Project Board
 ```markdown
-[![GitHub Project](https://github.com/orgs/CleanCity/projects/1)
+[GitHub Project](https://github.com/users/Nompie1993/projects/5)
 ```
 **Columns:**
 ```
