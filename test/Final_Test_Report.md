@@ -56,7 +56,6 @@
 
 ## ⚠️ Defect Analysis
 
-## Defect Analysis
 
 ### 1. Open Defects (Critical/Major)
 
@@ -167,22 +166,16 @@ pie showData
 
 📎 Appendices
 
-## 1.Appendices
-
 [Defect Log](./defect_log.md)
-
 Tracks all reported issues with status and severity
 
 [Test Strategy](./test_strategy.md) 
-
 Overall testing approach and coverage targets
 
 [Test Plan](./test_plan.md)
-
 Detailed test phases and execution schedule
 
 [Jest Configuration](./jest.config.js) 
-
 Test runner setup and coverage settings
 
 Approved By:
