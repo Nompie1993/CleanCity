@@ -110,7 +110,7 @@
 
 ---
 
-## TC-40 - Verify Follow/Unfollow Functionality Is Non-Existent/Non-Functional
+## TC-40 - Validate follow actions blocked for unauthenticated users
 
 **Module:** User Authentication  
 **Priority:** Medium  
@@ -133,7 +133,7 @@
 
 ---
 
-## TC-29 - Verify erros message when Invalid Password Is Entered
+## TC-29 - Validate invalid password error handling
 
 **Module:** User Authentication  
 **Priority:** High  
@@ -157,7 +157,7 @@
 
 ---
 
-## TC-27 - Verification Error for Mismatched Passwords is Non-Functional
+## TC-27 - Check login Error Message functionality
 
 **Module:** User Authentication  
 **Priority:** High  
@@ -204,7 +204,7 @@
 
 ---
 
-## TC-64 - Live Chat Is Non-Functional Across All Pages
+## TC-64 - Validate live chat widget presence and functionality
 
 **Module:** Customer Support (Live Chat)  
 **Priority:** High  
@@ -229,7 +229,7 @@
 
 ---
 
-## TC-56 - Website Allows Pickup Scheduling While Offline
+## TC-56 - Check if Website Allows Pickup Scheduling While Offline
 
 **Module:** Pickup Scheduling  
 **Priority:** High  
@@ -254,7 +254,7 @@
 
 ---
 
-## TC-43 - Pending Requests Show Incorrect Data & Missing Features
+## TC-43 - Validate pending request rejection workflow
 
 **Module:** Pickup Requests  
 **Priority:** High  
@@ -280,7 +280,7 @@
 
 ---
 
-## TC-42 - Pending Requests Display Incorrectly & No Email Notification Sent
+## TC-42 - Validate admin rejection of pending requests
 
 **Module:** Pickup Requests  
 **Priority:** High  
@@ -333,7 +333,7 @@
 
 ---
 
-## TC-41 - Challenge Participation Tracking Missing Features
+## TC-41 - Validate badge rewards upon challenge completion
 
 **Module:** Challenges & Badges  
 **Priority:** High  
@@ -361,7 +361,7 @@
 
 ---
 
-## TC-44 - Search Bar and Requests/Analytics Data Missing on Dashboard
+## TC-44 - Verify dashboard search and data rendering
 
 **Module:** Dashboard & Analytics  
 **Priority:** High  
@@ -388,7 +388,7 @@
 
 ---
 
-## TC-59 - Date Picker Allows Scheduling Beyond Maximum Advance Limit
+## TC-59 - Validate date picker restrictions for future pickups
 
 **Module:** Pickup Scheduling  
 **Priority:** Critical  
