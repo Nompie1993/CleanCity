@@ -74,9 +74,13 @@
 [Axe Report](https://github.com/user-attachments/assets/08135134-8276-4fd8-97ae-b3c0a0cecfeb)
 
 🤖 Test Automation & CI/CD
+
 1. Automation Framework
+   
 -Tools: Jest + React Testing Library
+
 -Coverage: 70% (Critical paths only)
+
 -CI/CD: GitHub Actions (Runs on push)
 
 ### 2. Key Automated Tests
@@ -99,6 +103,7 @@
 
 
 2. Improvement Plan
+   
 Immediate Fix: Adjust color contrast for failing elements (Defect #47)
 
 Long-Term: Integrate Axe-core into unit tests
@@ -137,6 +142,7 @@ Long-Term: Integrate Axe-core into unit tests
 | Accessibility Score ≥90       | ✅ (98%)         |
 
 2. Recommendations
+   
 🚀 Immediate Actions:
 
 Fix Defect #47 (color contrast) before release
@@ -160,6 +166,7 @@ Implement Axe-core in unit tests
    - Detailed test phases and execution schedule
 4. [Jest Configuration](./jest.config.js)  
    - Test runner setup and coverage settings
+     
 
 
 Approved By:
