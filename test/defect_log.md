@@ -95,6 +95,7 @@
 [Warning] Missing chat container element (footer-chat-widget)
 
 ------------------------------------------------------------------------------------------------------------------------------
+
 # Defect Report: DR-33 - Recent Pickups Section Missing/Incomplete
 
 **Environment:**  
@@ -123,4 +124,3 @@
 **Console Errors:**  
 ```javascript
 [Error] Failed to load pickups: 404 (Not Found) - /api/user/pickups
----------------------------------------------------------------------------------------------------------------------------
