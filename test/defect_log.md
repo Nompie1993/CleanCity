@@ -93,3 +93,34 @@
 ```log
 [Error] LiveChat: Widget initialization failed - SDK not loaded (line 142, chat-plugin.js)
 [Warning] Missing chat container element (footer-chat-widget)
+
+------------------------------------------------------------------------------------------------------------------------------
+# Defect Report: DR-33 - Recent Pickups Section Missing/Incomplete
+
+**Environment:**  
+- OS: macOS Ventura 13.5  
+- Browser: Chrome 120.0.6099.216  
+
+## **Steps to Reproduce**
+1. Log in as user with historical pickups
+2. Access either:
+   - http://localhost:3000/dashboard (no section)
+   - http://127.0.0.1:5500/index.html (partial data)
+
+## **Expected vs Actual**
+| Expected | Actual |
+|----------|--------|
+| Complete pickup history cards | Missing section or incomplete data |
+| 5 entries by default | Zero/partial entries displayed |
+
+**Severity:** Medium  
+**Priority:** High (User Experience)  
+
+## **Evidence**
+![Missing section](https://github.com/user-attachments/assets/039dcfb7-876e-4bf3-a293-ef6cacab47e8)  
+![Partial data](https://github.com/user-attachments/assets/27463571-0a0a-4614-b206-88769a557d4a)  
+
+**Console Errors:**  
+```javascript
+[Error] Failed to load pickups: 404 (Not Found) - /api/user/pickups
+----------------------------------------------------------------------------------------------------------------------------
