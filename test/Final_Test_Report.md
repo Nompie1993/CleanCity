@@ -75,6 +75,17 @@
 
 ---
 
+### 2. Defect Trends
+
+```mermaid
+pie showData
+    title Defects by Module
+    "Authentication" : 0
+    "Waste Management" : 2
+    "Dashboard" : 1
+    "Accessibility" : 1
+    "Admin" : 0
+```
 ## 🤖 Test Automation & CI/CD
 
 ### 1. Automation Framework
