@@ -110,7 +110,6 @@
 
 **Evidence:**  
 ![Date picker allowing 31-day selection](https://github.com/user-attachments/assets/f35de4c3-df4b-47dd-859b-090d16180e07)  
-```json
 // API Response
 {
   "status": 200,
