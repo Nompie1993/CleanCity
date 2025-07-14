@@ -617,61 +617,50 @@
    at auth.js:127:15
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-# Defect Report: #33 - Missing Recent Pickups Dashboard Section
+# Defect Report: #35 - Blog Comment Submission Failure
 
-**Module:** User Dashboard  
-**Preconditions:** User has ≥1 completed pickup request  
+**Module:** Blog/Comment System  
+**Preconditions:** Authenticated user, existing blog post  
 
 ## **Environment**
 - OS: macOS
 - Browser: Chrome v120
-- Test URLs:
-  - http://localhost:3000/dashboard
-  - http://127.0.0.1:5500/index.html#
+- User State: Logged-in
 
 ## **Steps to Reproduce**
-1. Log in with valid credentials  
-2. Navigate to user dashboard  
-3. Observe "Recent Pickups" section  
+1. Navigate to any blog post
+2. Enter comment in text field (e.g., "This helped me reduce waste!")
+3. Click "Post" button
+4. Observe comment section refresh
 
 ## **Expected vs Actual**
 | Expected Behavior | Actual Behavior |
 |-------------------|-----------------|
-| "Recent Pickups" section visible | Section missing entirely (localhost) |
-| Last 5 pickups displayed | No results shown (localhost) |
-| Shows status/date/type/quantity | Only shows date/type (127.0.0.1) |
+| Comment appears immediately | No visual feedback |
+| Displays username + timestamp | Comment fails to render |
+| Appears in chronological order | No change to comment section |
 
-**Severity:** High (core dashboard functionality)  
-**Priority:** High (impairs user tracking)  
+**Severity:** Medium (engagement feature)  
+**Priority:** Medium (affects user interaction)  
 
 ## **Evidence**
-1. **Localhost 3000:**
-   - [Complete section missing](https://github.com/user-attachments/assets/039dcfb7-876e-4bf3-a293-ef6cacab47e8)
-
-2. **127.0.0.1:5500:**
-   - [Partial data display](https://github.com/user-attachments/assets/27463571-0a0a-4614-b206-88769a557d4a)
+1. [Comment submission interface](https://github.com/user-attachments/assets/9d37dd4d-80f7-412f-89ad-fdfd76ae1bd4)
+2. [Missing comment after submission](https://github.com/user-attachments/assets/1faa4312-b143-4064-b063-1bdeddcea807)
 
 ## **Technical Analysis**
 1. **Frontend Issues:**
-   - Component rendering conditional broken (localhost)
-   - Data mapping incomplete (127.0.0.1 - missing quantity/status)
-   - Possible route configuration errors
+   - Comment component not re-rendering
+   - Success state not triggering UI update
+   - Possible form submission error
 
 2. **Backend Issues:**
-   - API endpoint returning empty/incorrect data
-   - Database query limitations (no 5-item limit)
+   - API may return 200 OK but not persist data
+   - WebSocket/SignalR connection failure
+   - Database write operations failing silently
 
-3. **Environment Differences:**
-   - Inconsistent behavior between development ports
-   - Suggests configuration or build issues
-
-## **Root Cause Hypotheses**
-1. Missing API consumption in frontend component
-2. Incorrect data filtering in dashboard service
-3. Environment-specific feature flags
-
-## **Debugging Checklist**
-- [ ] Verify API response for `/api/user/pickups/recent`
-- [ ] Check component rendering conditions
-- [ ] Compare environment configurations
-- [ ] Validate database query results
+3. **Console Errors:**
+   ```javascript
+   // Check for:
+   - 400/500 API responses
+   - CORS errors
+   - State management warnings
