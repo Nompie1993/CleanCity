@@ -133,7 +133,7 @@
 
 ---
 
-## TC-29 - Error Does Not Appear When Invalid Password Is Entered
+## TC-29 - Verify erros message when Invalid Password Is Entered
 
 **Module:** User Authentication  
 **Priority:** High  
