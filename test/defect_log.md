@@ -155,9 +155,7 @@
 
 ---
 
- // Console error observed:
-Uncaught TypeError: Cannot read properties of undefined (reading 'message')
-    at auth.js:142:23
+
 
 # Defect Report: #62 - No Custom Tooltip for Pickup Date Field
 
