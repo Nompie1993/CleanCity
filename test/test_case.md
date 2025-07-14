@@ -19,19 +19,6 @@
 | Testing Tool | Axe DevTools v4.7 |
 | WCAG Standard | AA (4.5:1 minimum) |
 
-## **Actual Result**
-- [ ] Pass  
-- [X] Fail  
-- [ ] Blocked  
-
-**Notes:**  
-- 3 contrast violations found (see screenshot)
-- Most severe violation: Main navigation (3.8:1 ratio)
-- Full results: [Axe Report](https://github.com/user-attachments/assets/08135134-8276-4fd8-97ae-b3c0a0cecfeb)
-
-**Tester:** Nompie Dube 
-**Date:** 2025-07-12
-
 -----------------------------------------------------------------------------------------------------------------------------
 
 # Test Case: TC-095 - Verify Live Chat Availability
@@ -58,20 +45,7 @@
 |-------|-------|
 | Test Time | Business Hours (9:00-17:00 EST) |
 | Browser | Chrome v120 |
-| Account Type | Registered User |
-
-## **Actual Result**
-- [ ] Pass  
-- [X] Fail  
-- [ ] Blocked  
-
-**Notes:**  
-- Chat widget fails to load (see defect #64)
-- Console shows "LiveChat SDK not found" error
-- No network calls to chat service observed
-
-**Tester:** Neo  
-**Date:** 2025-07-12  
+| Account Type | Registered User |  
 
 ----------------------------------------------------------------------------------------------------------------------------
 
@@ -103,23 +77,6 @@
 | Invalid Date | 2024-01-15 |
 | Valid Max Date | 2024-01-14 |
 
-## **Actual Result**
-- [ ] Pass  
-- [X] Fail  
-- [ ] Blocked  
-
-**Evidence:**  
-![Date picker allowing 31-day selection](https://github.com/user-attachments/assets/f35de4c3-df4b-47dd-859b-090d16180e07)  
-// API Response
-{
-  "status": 200,
-  "data": {
-    "pickupId": 8473,
-    "scheduledDate": "2024-01-15" // Should be rejected
-  }
-}
-
-
 -------------------------------------------------------------------------------------------------------------------------------
 
 # Test Case: TC-33 - Verify Recent Pickups Display
@@ -150,19 +107,6 @@
 | Test User | user_with_pickups@test.com |
 | Expected Entries | 5 |
 | Required Fields | Status, Date, Type, Qty |
-
-## **Actual Result**
-- [ ] Pass  
-- [X] Fail  
-- [ ] Blocked  
-
-**Notes:**  
-1. localhost:3000 - Missing entire "Recent Pickups" section  
-2. 127.0.0.1 - Shows date/type but missing quantity and status  
-3. Both fail to display 5 entries  
-
-**Tester:** Lusanda 
-**Date:** 2025-07-12 
 
 ---
 
