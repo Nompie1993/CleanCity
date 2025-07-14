@@ -163,3 +163,202 @@
 
 **Tester:** Lusanda 
 **Date:** 2025-07-12 
+
+# Test Case: TC-40 - Verify Follow/Unfollow Functionality Is Non-Existent/Non-Functional
+
+**Module:** User Authentication  
+**Priority:** Medium  
+**Type:** Functional  
+
+## **Test Steps**
+1. Precondition:
+   - User is on login page
+2. Action: Enter wrong password
+3. Action: Click "Login"
+4. Expected Result: 
+   - Follow/unfollow functionality should NOT be available for unauthenticated users
+
+## **Test Data**
+| Field    | Value        |
+|----------|-------------|
+| OS       | MacOS       |
+| Browser  | Chrome 120  |
+| Password | Incorrect   |
+
+## **Actual Result**
+- [ ] Pass  
+- [X] Fail  
+- [ ] Blocked  
+
+**Evidence:**  
+![image1](https://github.com/user-attachments/assets/b0e1321c-b846-402d-a59d-577abdfa10d8)  
+![image2](https://github.com/user-attachments/assets/d43012eb-9e37-4d1a-bd9d-2bfb401e8ae4)  
+
+**Notes:**  
+- Follow and unfollow functionality is visible and operational despite failed login.
+
+**Tester:** LusandaMO  
+**Date:** 2025-07-14  
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+# Test Case: TC-29 - Error Does Not Appear When Invalid Password Is Entered
+
+**Module:** User Authentication  
+**Priority:** High  
+**Type:** Validation  
+
+## **Test Steps**
+1. Precondition:
+   - User is on login page
+2. Action: Enter wrong password
+3. Action: Click "Login"
+4. Expected Result: 
+   - Error message should appear indicating invalid password
+   - User should NOT be able to access dashboard
+
+## **Test Data**
+| Field    | Value        |
+|----------|-------------|
+| OS       | MacOS       |
+| Browser  | Chrome 120  |
+| Password | Incorrect   |
+
+## **Actual Result**
+- [ ] Pass  
+- [X] Fail  
+- [ ] Blocked  
+
+**Evidence:**  
+![image1](https://github.com/user-attachments/assets/802e81f4-b000-4da8-a450-c2ce41b25204)  
+![image2](https://github.com/user-attachments/assets/4620b063-d190-4486-94d2-e9c4c769d6a9)  
+
+**Notes:**  
+- Invalid password allows login and user is taken to dashboard without error.
+
+**Tester:** LusandaMO  
+**Date:** 2025-07-14  
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+# Test Case: TC-27 - Verification Error for Mismatched Passwords is Non-Functional
+
+**Module:** User Authentication  
+**Priority:** High  
+**Type:** Validation  
+
+## **Test Steps**
+1. Precondition:
+   - User is on login page
+2. Action: Enter wrong password
+3. Action: Click "Login"
+4. Expected Result: 
+   - Error message should appear indicating password mismatch
+   - Page should NOT crash
+
+## **Test Data**
+| Field    | Value        |
+|----------|-------------|
+| OS       | MacOS       |
+| Browser  | Chrome 120  |
+| Password | Incorrect   |
+
+## **Actual Result**
+- [ ] Pass  
+- [X] Fail  
+- [ ] Blocked  
+
+**Evidence:**  
+![image1](https://github.com/user-attachments/assets/53fb6e93-2461-4d97-a5db-a5dca32cd31b)  
+![image2](https://github.com/user-attachments/assets/a6bc1ad1-c6be-4e7c-8554-ae7445db0127)  
+![image3](https://github.com/user-attachments/assets/a604dd38-272c-4031-bc7c-85aac43af914)  
+
+**Notes:**  
+- Page crashes instead of showing error for mismatched password.
+
+**Tester:** LusandaMO  
+**Date:** 2025-07-14  
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+# Test Case: TC-62 - Verify Custom Tooltip for Pickup Date Field
+
+**Module:** Schedule Pickup  
+**Priority:** Medium  
+**Type:** Usability  
+
+## **Test Steps**
+1. Precondition:
+   - User is on the schedule pickup page
+2. Action: Locate the pickup date input field
+3. Action: Hover mouse cursor over the pickup date field (do not select a date)
+4. Expected Result: 
+   - Custom tooltip or helper text appears with:
+     "Select date 24h+ in advance. Max 30 days"
+
+## **Test Data**
+| Field    | Value        |
+|----------|-------------|
+| OS       | MacOS       |
+| Browser  | Chrome 120  |
+
+## **Actual Result**
+- [ ] Pass  
+- [X] Fail  
+- [ ] Blocked  
+
+**Evidence:**  
+![image1](https://github.com/user-attachments/assets/80ff0c33-4a03-446a-b854-9f5017c42f11)  
+
+**Notes:**  
+- Only default browser tooltip "Please fill in this field" is shown
+- No custom guidance about the valid date range (24h+ in advance, max 30 days)
+
+**Tester:** LusandaMO  
+**Date:** 2025-07-14  
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+# Test Case: TC-64 - Live Chat Is Non-Functional Across All Pages
+
+**Module:** Customer Support (Live Chat)  
+**Priority:** High  
+**Type:** Functional  
+
+## **Test Steps**
+1. Precondition:
+   - User is on any site page (Homepage, Dashboard, Blog, Community)
+2. Action: Scroll down to the footer section
+3. Action: Observe for presence of live chat icon/widget
+4. Action: Navigate between pages, repeat observation
+5. Expected Result:
+   - Live chat icon/widget is visible and accessible on the footer and all key pages
+   - Clicking the icon opens a functional live chat interface
+
+## **Test Data**
+| Field    | Value        |
+|----------|-------------|
+| OS       | MacOS       |
+| Browser  | Chrome 120  |
+
+## **Actual Result**
+- [ ] Pass  
+- [X] Fail  
+- [ ] Blocked  
+
+**Evidence:**  
+![image1](https://github.com/user-attachments/assets/9e35a097-7dd0-4f23-a3a8-b01645c77f9e)  
+![image2](https://github.com/user-attachments/assets/bae9eb91-c822-4e5a-b22c-2921d5dacaa6)  
+![image3](https://github.com/user-attachments/assets/db28f0fa-cf93-4ee3-bae3-f95daccdbb78)  
+![image4](https://github.com/user-attachments/assets/d237749b-5d0e-45c6-aefd-4328d6eadde6)  
+
+**Notes:**  
+- No live chat icon or widget displayed on footer or any pages
+- Users unable to access live chat functionality anywhere on the site
+
+**Tester:** LusandaMO  
+**Date:** 2025-07-14  
