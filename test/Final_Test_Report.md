@@ -73,15 +73,14 @@
 📸 **Evidence:**  
 [Axe Report](https://github.com/user-attachments/assets/08135134-8276-4fd8-97ae-b3c0a0cecfeb)
 
-🤖 Test Automation & CI/CD
+---
 
-1. Automation Framework
-   
--Tools: Jest + React Testing Library
+## 🤖 Test Automation & CI/CD
 
--Coverage: 70% (Critical paths only)
-
--CI/CD: GitHub Actions (Runs on push)
+### 1. Automation Framework
+- **Tools:** Jest + React Testing Library
+- **Coverage:** 70% (Critical paths only)
+- **CI/CD:** GitHub Actions (Runs on push)
 
 ### 2. Key Automated Tests
 
@@ -92,6 +91,9 @@
 | `PickupRequest.test.js`       | Form submission, API mock         | ✅ Pass    |
 
 
+
+## ♿ Accessibility & Compliance
+
 ### 1. WCAG 2.1 AA Compliance
 
 | Check                  | Status            |
@@ -99,19 +101,17 @@
 | Color Contrast (AA)    | ❌ 3 Failures     |
 | Keyboard Navigation    | ✅ Pass           |
 | Screen Reader Support  | ✅ Pass           |
-| ARIA Labels           | ✅ Pass           |
+| ARIA Labels            | ✅ Pass           |
 
+### 2. Improvement Plan
+- **Immediate Fix:** Adjust color contrast for failing elements (Defect #47)
+- **Long-Term:** Integrate Axe-core into unit tests
 
-2. Improvement Plan
-   
-Immediate Fix: Adjust color contrast for failing elements (Defect #47)
+---
 
-Long-Term: Integrate Axe-core into unit tests
+## ⚡ Performance & Cross-Browser Testing
 
-⚡ Performance & Cross-Browser Testing
-
-
-   ### 1. Lighthouse Scores
+### 1. Lighthouse Scores
 
 | Metric           | Score |
 |------------------|-------|
@@ -120,9 +120,7 @@ Long-Term: Integrate Axe-core into unit tests
 | Best Practices   | 95    |
 | SEO              | 100   |
 
-
-
-   ### 2. Cross-Browser Compatibility
+### 2. Cross-Browser Compatibility
 
 | Browser       | OS            | Test Status |
 |--------------|---------------|-------------|
@@ -130,10 +128,11 @@ Long-Term: Integrate Axe-core into unit tests
 | Firefox 125  | Ubuntu 22.04  | ✅ Pass     |
 | Safari 17    | macOS         | ✅ Pass     |
 
-✅ Exit Criteria & Recommendations
+---
 
+## ✅ Exit Criteria & Recommendations
 
-   ### 3. Exit Criteria Status
+### 1. Exit Criteria Status
 
 | Criterion                     | Status           |
 |-------------------------------|------------------|
@@ -141,33 +140,33 @@ Long-Term: Integrate Axe-core into unit tests
 | 95% Requirement Coverage      | ✅ Achieved      |
 | Accessibility Score ≥90       | ✅ (98%)         |
 
-2. Recommendations
-   
-🚀 Immediate Actions:
+### 2. Recommendations
 
-Fix Defect #47 (color contrast) before release
+🚀 **Immediate Actions:**
+- Fix Defect #47 (color contrast) before release
+- Increase automation coverage to 85% in next sprint
 
-Increase automation coverage to 85% in next sprint
-
-📅 Long-Term Improvements:
-
-Add visual regression testing (e.g., Percy)
-
-Implement Axe-core in unit tests
+📅 **Long-Term Improvements:**
+- Add visual regression testing (e.g., Percy)
+- Implement Axe-core in unit test
 
 📎 Appendices
-## 📎 Appendices
 
-1. [Defect Log](./defect_log.md)  
-   - Tracks all reported issues with status and severity
-2. [Test Strategy](./test_strategy.md)  
-   - Overall testing approach and coverage targets
-3. [Test Plan](./test_plan.md)  
-   - Detailed test phases and execution schedule
-4. [Jest Configuration](./jest.config.js)  
-   - Test runner setup and coverage settings
-     
+[Defect Log](./defect_log.md)
 
+Tracks all reported issues with status and severity
+
+[Test Strategy](./test_strategy.md) 
+
+Overall testing approach and coverage targets
+
+[Test Plan](./test_plan.md)
+
+Detailed test phases and execution schedule
+
+[Jest Configuration](./jest.config.js) 
+
+Test runner setup and coverage settings
 
 Approved By:
 QA Lead: ___________________
@@ -178,3 +177,5 @@ Next Steps:
 Dev Team: Fix Defect #47 by 2025-07-18
 
 QA Team: Verify fixes in Regression Cycle 3
+
+
