@@ -160,11 +160,7 @@ Implement Axe-core in unit tests
    - Detailed test phases and execution schedule
 4. [Jest Configuration](./jest.config.js)  
    - Test runner setup and coverage settings
-https://github.com/Nompie1993/CleanCity/blame/main/test/jest.config.js
-https://github.com/Nompie1993/CleanCity/blob/main/test/lighthouse.md
-https://github.com/Nompie1993/CleanCity/blob/main/test/test_case.md
-https://github.com/Nompie1993/CleanCity/blob/main/test/test_plan.md
-https://github.com/Nompie1993/CleanCity/blob/main/test/test_strategy.md
+
 
 Approved By:
 QA Lead: ___________________
