@@ -120,4 +120,50 @@
   }
 }
 
+
+------------------------------------------------------------------------------------------------------------------------------
+# Test Case: TC-33 - Verify Recent Pickups Display
+
+**Module:** User Dashboard  
+**Priority:** Medium  
+**Type:** Functional  
+
+## **Test Steps**
+1. Precondition:
+   - User has completed ≥1 pickup request
+   - Test URLs:
+     - http://localhost:3000/dashboard
+     - http://127.0.0.1:5500/index.html
+2. Action: Log in with test credentials
+3. Action: Navigate to dashboard
+4. Action: Inspect "Recent Pickups" section
+5. Expected Result:
+   - Last 5 pickups displayed with:
+     - Status (Completed/Scheduled)
+     - Date
+     - Waste type
+     - Quantity
+
+## **Test Data**
+| Field | Test Value |
+|-------|------------|
+| Test User | user_with_pickups@test.com |
+| Expected Entries | 5 |
+| Required Fields | Status, Date, Type, Qty |
+
+## **Actual Result**
+- [ ] Pass  
+- [X] Fail  
+- [ ] Blocked  
+
+**Notes:**  
+1. localhost:3000 - Missing entire "Recent Pickups" section  
+2. 127.0.0.1 - Shows date/type but missing quantity and status  
+3. Both fail to display 5 entries  
+
+**Tester:** Lusanda  
+**Date:** 2025-7-12
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
 -------------------------------------------------------------------------------------------------------------------------------------
