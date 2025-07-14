@@ -56,13 +56,8 @@
 ![Unlimited date selection](https://github.com/user-attachments/assets/f35de4c3-df4b-47dd-859b-090d16180e07)  
 ![Successful submission with invalid date](https://github.com/user-attachments/assets/a1ff1799-ba6d-495c-9108-bc74c90b5123)  
 
-**Console Logs:**  
-```log
-[Form Submission] POST /api/pickups - 200 OK
-Request payload: {"pickupDate":"2024-02-30",...}
 
-
-------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
 # Defect Report: #64 - Live Chat Widget Missing Across Site
 
 **Environment:**  
@@ -98,5 +93,3 @@ Request payload: {"pickupDate":"2024-02-30",...}
 ```log
 [Error] LiveChat: Widget initialization failed - SDK not loaded (line 142, chat-plugin.js)
 [Warning] Missing chat container element (footer-chat-widget)
-
-----------------------------------------------------------------------------------------------------------------------------------------
