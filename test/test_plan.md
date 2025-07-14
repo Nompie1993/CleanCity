@@ -5,7 +5,7 @@
 **Version:** 1.0  
 **Date:** `2025-06-26`  
 **Target Release:** v1.0  
-**Test Team:**   Nompie Dube, Neo, Lusanda
+**Test Team:**   Nompie Dube, Neo Mokoele, Lusanda Ntlombeni
 
 ---
 
