@@ -121,8 +121,6 @@
 ![Missing section](https://github.com/user-attachments/assets/039dcfb7-876e-4bf3-a293-ef6cacab47e8)  
 ![Partial data](https://github.com/user-attachments/assets/27463571-0a0a-4614-b206-88769a557d4a)  
 
-**Console Errors:**  
-```javascript
 [Error] Failed to load pickups: 404 (Not Found) - /api/user/pickups
 
 ---------------------------------------------------------------------------------------------------------------------------------
@@ -157,93 +155,7 @@
 
 ---
 
-# Defect Report: #62 - No Custom Tooltip for Pickup Date Field
-
-**Environment:**  
-- OS: MacOS  
-- Browser: Chrome 120  
-- Device: Desktop  
-
-## **Steps to Reproduce**
-1. Go to the schedule pickup page.
-2. Locate the pickup date input field.
-3. Hover your mouse cursor over the pickup date field without selecting a date.
-
-## **Expected vs Actual**
-| Expected | Actual |
-|----------|--------|
-| A custom tooltip or message should appear on hover, clearly stating: "Select date 24h+ in advance. Max 30 days". This guides the user about valid input expectations. | Only the browser’s default validation message appears: "Please fill in this field". The user receives no guidance about the required date range (24h+ in advance, max 30 days). |
-
-**Severity:** Medium  
-**Priority:** Medium  
-
-## **Evidence**
-- Screenshot: ![Screenshot](https://github.com/user-attachments/assets/80ff0c33-4a03-446a-b854-9f5017c42f11)
-
----
-
-# Defect Report: #64 - Live Chat Is Non-Functional Across All Pages
-
-**Environment:**  
-- OS: MacOS  
-- Browser: Chrome 120  
-- Device: Desktop  
-
-## **Steps to Reproduce**
-1. Navigate to the home page.
-2. Scroll down to the footer section.
-3. Observe the absence of the live chat icon/widget.
-4. Navigate to other pages (e.g., dashboard, blog, community).
-5. Again, check the footer and page sections for live chat availability.
-
-## **Expected vs Actual**
-| Expected | Actual |
-|----------|--------|
-| A live chat icon/widget should be visible and accessible on the footer and all key pages. Clicking the icon should open a functional live chat window or interface. | No live chat icon or widget is displayed on the footer or any pages. Users are unable to access live chat functionality anywhere on the site. |
-
-**Severity:** Major  
-**Priority:** High  
-
-## **Evidence**
-- Screenshot: ![Screenshot 1](https://github.com/user-attachments/assets/d237749b-5d0e-45c6-aefd-4328d6eadde6)
-- Screenshot: ![Screenshot 2](https://github.com/user-attachments/assets/db28f0fa-cf93-4ee3-bae3-f95daccdbb78)
-- Screenshot: ![Screenshot 3](https://github.com/user-attachments/assets/bae9eb91-c822-4e5a-b22c-2921d5dacaa6)
-- Screenshot: ![Screenshot 4](https://github.com/user-attachments/assets/9e35a097-7dd0-4f23-a3a8-b01645c77f9e)
-
----
-
----
-"Defect #27 - Password Mismatch Error Non-Functional"
-
----
-
-**Environment:**  
-- OS: macOS  
-- Browser: Chrome 120  
-- Device: Desktop  
-
-## Steps to Reproduce
-1. Navigate to login page
-2. Enter valid username with incorrect password  
-3. Click "Login" button
-
-## Expected vs Actual Behavior
-
-| Expected Behavior | Actual Behavior |
-|-------------------|-----------------|
-| Display clear error message: "Incorrect password" | Page crashes with 500 error |
-| Maintain current page state | Full page reload required |
-| Log failed attempt securely | No audit log entry created |
-
-**Severity:** Major  
-**Priority:** High  
-
-## Evidence
-![Login Error](https://github.com/user-attachments/assets/a604dd38-272c-4031-bc7c-85aac43af914)  
-![Console Errors](https://github.com/user-attachments/assets/a6bc1ad1-c6be-4e7c-8554-ae7445db0127)  
-
-```javascript
-// Console error observed:
+ // Console error observed:
 Uncaught TypeError: Cannot read properties of undefined (reading 'message')
     at auth.js:142:23
 
@@ -299,3 +211,4 @@ Uncaught TypeError: Cannot read properties of undefined (reading 'message')
 - Screenshot: ![Screenshot 2](https://github.com/user-attachments/assets/db28f0fa-cf93-4ee3-bae3-f95daccdbb78)
 - Screenshot: ![Screenshot 3](https://github.com/user-attachments/assets/bae9eb91-c822-4e5a-b22c-2921d5dacaa6)
 - Screenshot: ![Screenshot 4](https://github.com/user-attachments/assets/9e35a097-7dd0-4f23-a3a8-b01645c77f9e)
+
