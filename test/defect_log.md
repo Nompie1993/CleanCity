@@ -126,6 +126,10 @@
 [Error] Failed to load pickups: 404 (Not Found) - /api/user/pickups
 
 ---------------------------------------------------------------------------------------------------------------------------------
+- Screenshot: ![Screenshot 2](https://github.com/user-attachments/assets/db28f0fa-cf93-4ee3-bae3-f95daccdbb78)
+- Screenshot: ![Screenshot 3](https://github.com/user-attachments/assets/bae9eb91-c822-4e5a-b22c-2921d5dacaa6)
+- Screenshot: ![Screenshot 4](https://github.com/user-attachments/assets/9e35a097-7dd0-4f23-a3a8-b01645c77f9e)
+
 # Defect Report: #27 - Verification Error for Mismatched Passwords Is Non-Functional
 
 **Environment:**  
@@ -151,7 +155,7 @@
 - Screenshot: ![Screenshot 2](https://github.com/user-attachments/assets/a6bc1ad1-c6be-4e7c-8554-ae7445db0127)
 - Screenshot: ![Screenshot 3](https://github.com/user-attachments/assets/53fb6e93-2461-4d97-a5db-a5dca32cd31b)
 
----------------------------------------------------------------------------------------------------------------------------------
+---
 
 # Defect Report: #62 - No Custom Tooltip for Pickup Date Field
 
@@ -176,7 +180,7 @@
 ## **Evidence**
 - Screenshot: ![Screenshot](https://github.com/user-attachments/assets/80ff0c33-4a03-446a-b854-9f5017c42f11)
 
---------------------------------------------------------------------------------------------------------------------------------
+---
 
 # Defect Report: #64 - Live Chat Is Non-Functional Across All Pages
 
