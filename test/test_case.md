@@ -31,3 +31,93 @@
 
 **Tester:** Nompie Dube 
 **Date:** 2025-07-12
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+# Test Case: TC-095 - Verify Live Chat Availability
+
+**Linked FR:** FR-095  
+**Module:** Customer Support  
+**Priority:** High  
+**Type:** Functional  
+
+## **Test Steps**
+1. Precondition: 
+   - User logged in with valid account
+   - Business hours (9AM-5PM EST)
+2. Action: Scroll to page footer
+3. Action: Click "Contact Support" link
+4. Action: Select "Live Chat" option
+5. Expected Result: 
+   - Chat widget opens with agent greeting
+   - Average wait time <2m displayed
+   - Message input field is active
+
+## **Test Data**
+| Field | Value |
+|-------|-------|
+| Test Time | Business Hours (9:00-17:00 EST) |
+| Browser | Chrome v120 |
+| Account Type | Registered User |
+
+## **Actual Result**
+- [ ] Pass  
+- [X] Fail  
+- [ ] Blocked  
+
+**Notes:**  
+- Chat widget fails to load (see defect #64)
+- Console shows "LiveChat SDK not found" error
+- No network calls to chat service observed
+
+**Tester:** Neo  
+**Date:** 2025-07-12  
+
+----------------------------------------------------------------------------------------------------------------------------
+
+# Test Case: TC-14.1.01 - Verify 31-Day Pickup Blocking
+
+**Linked Requirement:** FR-14.1 (Pickup Scheduling Limits)  
+**Module:** Order Management  
+**Priority:** High  
+**Type:** Boundary/Validation  
+ 
+
+## **Test Steps**
+1. Precondition:
+   - User logged in with "Create Pickup" permission
+   - System date: ${currentDate}
+2. Action: Navigate to "Schedule Pickup" form
+3. Action: Open date picker component
+4. Action: Attempt to select date ${currentDate + 31 days}
+5. Action: Submit form with invalid date
+6. Expected Result:
+   - Date picker visually disables dates beyond 30 days
+   - Form shows error: "Maximum advance scheduling is 30 days"
+   - Submission prevented with status 400 (Bad Request)
+
+## **Test Data**
+| Field | Value | 
+|-------|-------|
+| Test Date | 2023-12-15 |
+| Invalid Date | 2024-01-15 |
+| Valid Max Date | 2024-01-14 |
+
+## **Actual Result**
+- [ ] Pass  
+- [X] Fail  
+- [ ] Blocked  
+
+**Evidence:**  
+![Date picker allowing 31-day selection](https://github.com/user-attachments/assets/f35de4c3-df4b-47dd-859b-090d16180e07)  
+```json
+// API Response
+{
+  "status": 200,
+  "data": {
+    "pickupId": 8473,
+    "scheduledDate": "2024-01-15" // Should be rejected
+  }
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------
