@@ -89,8 +89,8 @@
 ![Missing chat in footer](https://github.com/user-attachments/assets/d237749b-5d0e-45c6-aefd-4328d6eadde6)  
 ![Dashboard page verification](https://github.com/user-attachments/assets/db28f0fa-cf93-4ee3-bae3-f95daccdbb78)  
 
-**Console Errors:**  
-```log
+-------------------------------------------------------------------------------------------------------------------------------
+
 [Error] LiveChat: Widget initialization failed - SDK not loaded (line 142, chat-plugin.js)
 [Warning] Missing chat container element (footer-chat-widget)
 
@@ -124,3 +124,5 @@
 **Console Errors:**  
 ```javascript
 [Error] Failed to load pickups: 404 (Not Found) - /api/user/pickups
+
+---------------------------------------------------------------------------------------------------------------------------------
