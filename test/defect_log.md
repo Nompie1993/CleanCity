@@ -60,3 +60,43 @@
 ```log
 [Form Submission] POST /api/pickups - 200 OK
 Request payload: {"pickupDate":"2024-02-30",...}
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+# Defect Report: #64 - Live Chat Widget Missing Across Site
+
+**Environment:**  
+- OS: macOS Ventura 13.5  
+- Browser: Chrome 120.0.6099.216  
+- Device: MacBook Pro 14" (M1 Pro)  
+
+## **Steps to Reproduce**
+1. Navigate to https://[yourdomain].com
+2. Scroll to footer section
+3. Verify absence of chat icon
+4. Repeat on:
+   - Dashboard page
+   - Blog page
+   - Community page
+5. Attempt to trigger chat via keyboard shortcut (expected: none working)
+
+## **Expected vs Actual**
+| Expected Behavior | Actual Behavior |
+|------------------|----------------|
+| Visible chat icon in footer | No chat interface detected |
+| Functional chat window on click | No interactive elements found |
+| Consistent across all pages | Missing site-wide |
+
+**Severity:** High (Critical Feature Missing)  
+**Priority:** Urgent (Customer Support Impact)  
+
+## **Evidence**
+![Missing chat in footer](https://github.com/user-attachments/assets/d237749b-5d0e-45c6-aefd-4328d6eadde6)  
+![Dashboard page verification](https://github.com/user-attachments/assets/db28f0fa-cf93-4ee3-bae3-f95daccdbb78)  
+
+**Console Errors:**  
+```log
+[Error] LiveChat: Widget initialization failed - SDK not loaded (line 142, chat-plugin.js)
+[Warning] Missing chat container element (footer-chat-widget)
+
+----------------------------------------------------------------------------------------------------------------------------------------
