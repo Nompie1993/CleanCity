@@ -56,6 +56,8 @@
 
 ## ⚠️ Defect Analysis
 
+## Defect Analysis
+
 ### 1. Open Defects (Critical/Major)
 
 | **Defect ID** | **Description**                     | **Severity** | **Status** |
@@ -161,7 +163,11 @@ pie showData
 - Add visual regression testing (e.g., Percy)
 - Implement Axe-core in unit test
 
+---
+
 📎 Appendices
+
+## 1.Appendices
 
 [Defect Log](./defect_log.md)
 
