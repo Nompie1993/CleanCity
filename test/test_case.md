@@ -164,8 +164,6 @@
 **Tester:** Lusanda 
 **Date:** 2025-07-12 
 
-# Test Cases
-
 ---
 
 ## TC-40 - Verify Follow/Unfollow Functionality Is Non-Existent/Non-Functional
