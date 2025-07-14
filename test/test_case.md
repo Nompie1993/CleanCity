@@ -29,5 +29,5 @@
 - Most severe violation: Main navigation (3.8:1 ratio)
 - Full results: [Axe Report](https://github.com/user-attachments/assets/08135134-8276-4fd8-97ae-b3c0a0cecfeb)
 
-**Tester:** Jane Doe  
-**Date:** 2023-11-15
+**Tester:** Nompie Dube 
+**Date:** 2025-07-12
