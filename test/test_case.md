@@ -226,3 +226,194 @@
 |----------|-------------|
 | OS       | MacOS       |
 | Browser  | Chrome 120  |
+
+---
+
+## TC-56 - Website Allows Pickup Scheduling While Offline
+
+**Module:** Pickup Scheduling  
+**Priority:** High  
+**Type:** Functional  
+
+**Test Steps:**
+1. Open the website (may be cached in the browser).
+2. Disconnect the device from the internet (go offline).
+3. Navigate to the Pickup Scheduling page.
+4. Fill in the form with valid information.
+5. Click Submit.
+
+**Expected Result:**  
+- Error message should appear, preventing pickup scheduling while offline.
+
+**Test Data:**
+| Field    | Value        |
+|----------|-------------|
+| OS       | (Specify)    |
+| Browser  | (Specify)    |
+| Status   | Offline      |
+
+---
+
+## TC-43 - Pending Requests Show Incorrect Data & Missing Features
+
+**Module:** Pickup Requests  
+**Priority:** High  
+**Type:** Functional  
+
+**Test Steps:**
+1. Log in as admin.
+2. Open "Pending Requests".
+3. Click "Reject" on request #123.
+4. Enter reason: "Incomplete address".
+
+**Expected Result:**  
+- Only pending requests are displayed (completed, missed, scheduled requests should not be shown).
+- Email notification should be received upon pickup request creation.
+- "Enter reason" section should be available on the pickup requests page.
+
+**Test Data:**
+| Field      | Value              |
+|------------|-------------------|
+| Role       | Admin             |
+| Request ID | 123               |
+| Reason     | Incomplete address|
+
+---
+
+## TC-42 - Pending Requests Display Incorrectly & No Email Notification Sent
+
+**Module:** Pickup Requests  
+**Priority:** High  
+**Type:** Functional  
+
+**Test Steps:**
+1. Log in as admin.
+2. Open "Pending Requests".
+3. Click "Reject" on request #123.
+4. Enter reason: "Incomplete address".
+
+**Expected Result:**  
+- Only pending requests are displayed, not completed, missed, or scheduled requests.
+- Email notification should be received by user upon making pickup request.
+- Request status should update accordingly.
+
+**Actual Result:**  
+- Shows other requests (completed, missed, scheduled) when viewing pending.
+- User does not receive email when pickup request is sent.
+- Request status does not change.
+
+**Test Data:**
+| Field    | Value      |
+|----------|-----------|
+| OS       | MacOS     |
+| Browser  | Chrome 120|
+| Role     | Admin     |
+| Request  | #123      |
+
+---
+
+## TC-52 - Schedule Pickup Modal Performance
+
+**Module:** Pickup Scheduling  
+**Priority:** Medium  
+**Type:** Performance  
+
+**Test Steps:**
+1. Click "Schedule Pickup" button.
+2. Measure time until modal appears.
+
+**Expected Result:**  
+- Modal opens within 1000ms.
+- No UI freezing.
+
+**Test Data:**
+| Field       | Value         |
+|-------------|--------------|
+| Environment | Chrome DevTools |
+
+---
+
+## TC-41 - Challenge Participation Tracking Missing Features
+
+**Module:** Challenges & Badges  
+**Priority:** High  
+**Type:** Functional  
+
+**Test Steps:**
+1. Go to login page with valid account.
+2. Navigate to the “Challenges” section.
+3. Select an active challenge, complete the required task and be awarded badges upon completion.
+4. Return to the dashboard or challenge progress tracker.
+
+**Expected Result:**  
+- Badges awarded upon completion of tasks, quiz, challenges, or competitions.
+
+**Actual Result:**  
+- Only a functional quiz is available and repeats the same three questions each time, even when already answered.
+- No badges awarded upon completion.
+- No other tasks, challenges, or competitions available.
+
+**Test Data:**
+| Field    | Value      |
+|----------|-----------|
+| OS       | MacOS     |
+| Browser  | Chrome 120|
+
+---
+
+## TC-44 - Search Bar and Requests/Analytics Data Missing on Dashboard
+
+**Module:** Dashboard & Analytics  
+**Priority:** High  
+**Type:** Functional  
+
+**Test Steps:**
+1. Log in with valid credentials.
+2. Navigate to the Dashboard or Dashboard Analytics page.
+3. Observe the top navigation and content area.
+
+**Expected Result:**  
+- A search bar should be visible on the dashboard or analytics page.
+- The page should display a list or summary of user requests or analytics data.
+
+**Actual Result:**  
+- The search bar is missing.
+- No requests or analytics data are displayed on the dashboard.
+
+**Test Data:**
+| Field    | Value      |
+|----------|-----------|
+| OS       | MacOS     |
+| Browser  | Chrome 120|
+
+---
+
+## TC-59 - Date Picker Allows Scheduling Beyond Maximum Advance Limit
+
+**Module:** Pickup Scheduling  
+**Priority:** Critical  
+**Type:** Functional  
+
+**Test Steps:**
+1. Log in to the application.
+2. Navigate to the "Schedule Pickup" page.
+3. Open the date picker/calendar.
+4. Select today’s date (valid).
+5. Select a future date that is more than 31 days from today.
+6. Submit the request.
+
+**Expected Result:**  
+- The date picker should disable or prevent selection of dates beyond a defined scheduling limit (e.g., 30 days in advance).
+- An error or warning should appear if a user attempts to schedule a pickup beyond the maximum allowed range.
+- The system should not submit requests with invalid future dates.
+
+**Actual Result:**  
+- The date picker allows selection of any future date, including dates more than 31 days ahead.
+- The system accepts and processes the request without any validation or warning.
+- No error is displayed, and the request is submitted successfully regardless of how far in the future the date is.
+
+**Test Data:**
+| Field    | Value      |
+|----------|-----------|
+| OS       | MacOS     |
+| Browser  | Chrome 120|
